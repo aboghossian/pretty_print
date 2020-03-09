@@ -1,7 +1,17 @@
 import math
 
 
-def make_oneline(text, m):
+def read_text(txt_file):
+    text = []
+    with open(txt_file) as file:
+        for line in file:
+            line = line.split()
+            text += line
+    return text
+
+
+# assumes text is a list of the words in the text
+def one_line_cost(text, m):
     cost_matrix = [[0 for i in range(len(text))] for j in range(len(text))]
     for i in range(len(text)):
         for j in range(i, len(text)):
